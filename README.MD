@@ -37,7 +37,6 @@ Process that could be helped with machine learning :
 
 
 
-
 ## 2. Related Work 
 ___
 
@@ -188,13 +187,15 @@ Final metrics :
  'map': 0.0844339689737369,
  'ndcg': 0.17261162377361844,
  'auc': 0.574831593418623}
+
 ### 5.5 Evaluation 
+
 On final evaluation we measured tuned model on test set, the result 
 
-|       precision @10 |             map@10 |             ndcg@10 |            auc@10 |   |   |
-|--------------------:|-------------------:|--------------------:|------------------:|---|---|
-| 0.16635468872652617 | 0.0844339689737369 | 0.17261162377361844 | 0.574831593418623 |   |   |
-|                     |                    |                     |                   |   |   |
+|       precision @10 |             map@10 |             ndcg@10 |            auc@10 |
+|--------------------:|-------------------:|--------------------:|------------------:|
+| 0.16635468872652617 | 0.0844339689737369 | 0.17261162377361844 | 0.574831593418623 |
+
 
 ### 5.6. Sanity Check on Recommendation
 
@@ -204,15 +205,7 @@ On final evaluation we measured tuned model on test set, the result
 ___
 
 ### 6.1. Further Work 
-1. Using more user oriented metrics such as --> Diversity, Serendipity, Novelty
+1. Using more user oriented metrics such as  **Diversity, Serendipity, Novelty**
 2. Using Multistage Approach 
 3. Apply Graph Data (Friends)
-4. Use Metadata as Features --> For Using Factorization Machine
-5. 
-
-
-
-5. A 
-6. B
-7. C
-   
+4. Use Metadata as Features,for Using Factorization Machine
