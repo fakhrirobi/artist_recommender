@@ -131,12 +131,12 @@ for later usage (such as : API) we will serialize object using `joblib.dump` fun
 ### 5.3. Model Selection 
 Result : 
 
-| No | precision @10 |   map@10 |  ndcg@10 |   auc@10 |                       model |   |   |
-|---:|--------------:|---------:|---------:|---------:|----------------------------:|---|---|
-|  1 |      0.135773 | 0.062366 | 0.134182 | 0.565975 |     AlternatingLeastSquares |   |   |
-|  2 |      0.112814 | 0.053603 | 0.115200 | 0.553911 | BayesianPersonalizedRanking |   |   |
-|  3 |      0.014199 | 0.004576 | 0.013120 | 0.506782 | LogisticMatrixFactorization |   |   |
-|    |               |          |          |          |                             |   |   |
+| No | precision @10 |   map@10 |  ndcg@10 |   auc@10 |                       model |
+|---:|--------------:|---------:|---------:|---------:|----------------------------:|
+|  1 |      0.135773 | 0.062366 | 0.134182 | 0.565975 |     AlternatingLeastSquares | 
+|  2 |      0.112814 | 0.053603 | 0.115200 | 0.553911 | BayesianPersonalizedRanking | 
+|  3 |      0.014199 | 0.004576 | 0.013120 | 0.506782 | LogisticMatrixFactorization | 
+
 
 from several metrics above we can see that `AlternatingLeastSquares` outperform other models --> move to Hyperparameter Tuning Phase 
 
