@@ -175,7 +175,8 @@ Some approach in hyperparameter tuning :
 
 For hyperparameter set up we will perform Cross-Validation with --> **K-Fold Cross Validation**
 
-![KFold](https://zitaoshen.rbind.io/project/machine_learning/machine-learning-101-cross-vaildation/featured.png)
+![KFold](https://zitaoshen.rbind.io/project/machine_learning/machine-learning-101-cross-vaildation/featured.png) [source](https://zitaoshen.rbind.io/project/machine_learning/machine-learning-101-cross-vaildation/featured.png)
+
 
 Best parameters  : 
 1. `factors` : **100**
