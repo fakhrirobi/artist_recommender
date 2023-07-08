@@ -18,9 +18,9 @@ Business Process
 
 ![Business Process](https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Business%20Process.png)
 
-Problem 
+Problem :
 
-    User Churn ~60% !
+User Churn ~60% !
 
 
 ### 1.3. Business Metrics 
