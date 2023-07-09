@@ -104,21 +104,21 @@
                 <h1 class=" title" id="component-title">Home</h1>
             
         </header>
-        <p><h2 id="1-introduction">1. Introduction</h2>
+        <p><h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="11business-understanding">1.1.Business Understanding</h3>
+<h3 id="11business-understanding">1.1.Business Understanding<a class="headerlink" href="#11business-understanding" title="Permanent link">&para;</a></h3>
 <p>Currently music on-line platform is on the rise. However people still can't fully developed shared their taste. Our Founder feel those and start to develop Music Streaming Platform called <strong>ontrack</strong>. Our Business is based on Subscription Model.
 Our Catalogue is Quite Huge contain ~17632 Artists. </p>
 <p>Our business is on decline, previous month we serve nearly 5000 users, however there is significant <strong>churn</strong> leaving our platform only having ~2000 users. </p>
 <p>We are in data science team,asked to assist business development team to tackle this situation. </p>
-<h3 id="12-problem-definition">1.2. Problem Definition</h3>
+<h3 id="12-problem-definition">1.2. Problem Definition<a class="headerlink" href="#12-problem-definition" title="Permanent link">&para;</a></h3>
 <p>Business Process </p>
 <p><img alt="Business Process" src="https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Business%20Process.png" /></p>
 <p>Problem :</p>
 <p>User Churn ~60% !</p>
-<h3 id="13-business-metrics">1.3. Business Metrics</h3>
+<h3 id="13-business-metrics">1.3. Business Metrics<a class="headerlink" href="#13-business-metrics" title="Permanent link">&para;</a></h3>
 <p>Business Metrics : Churn Rate </p>
-<h3 id="14-identifying-machine-learning-problem">1.4. Identifying Machine Learning Problem</h3>
+<h3 id="14-identifying-machine-learning-problem">1.4. Identifying Machine Learning Problem<a class="headerlink" href="#14-identifying-machine-learning-problem" title="Permanent link">&para;</a></h3>
 <p>Process that could be helped with machine learning : 
 <img alt="Business Process " src="https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Business%20Process_1.png" /></p>
 <p>Possible Solutions : </p>
@@ -163,7 +163,7 @@ Our Catalogue is Quite Huge contain ~17632 Artists. </p>
 </tr>
 </tbody>
 </table>
-<h3 id="15-objective-metrics">1.5 Objective Metrics</h3>
+<h3 id="15-objective-metrics">1.5 Objective Metrics<a class="headerlink" href="#15-objective-metrics" title="Permanent link">&para;</a></h3>
 <p>In this approach we will approach to Predict the ranking from user to artists. 
 | No |                                                                                     Metrics |                                                                                                        Advantage | Disadvantage                                                       |
 |---:|--------------------------------------------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------:|--------------------------------------------------------------------|
@@ -180,19 +180,19 @@ rel[i] = \text{relevance score at item in position i th}\
 <p>\end{split}
 \end{equation}
 $$</p>
-<p>$$\begin{equation}
+<div class="arithmatex">\[\begin{equation}
 \begin{split}
-1.NDCG \text{= Scaled Version of DCG (0 to 1)}\
-NDCG = \frac{DCG}{IDCG}\
+1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\
+NDCG = \frac{DCG}{IDCG}\\
 \text{IDCG = perfect DCG score when item ranked correctly.}
 \end{split}
 \end{equation}
-$$</p>
+\]</div>
 <p>MAP Formulas : 
 $$\begin{equation}
 \begin{split}
-1. AP @K = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \
-AP \text{@K}= \text{Average Precision at K-items} \ 
+1. AP <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a> = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \
+AP \text{<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a>}= \text{Average Precision at K-items} \ 
 \end{split}
 \end{equation}
 $$</p>
@@ -204,7 +204,7 @@ U = \text{all users}</p>
 \end{equation}
 $$</p>
 <p>With aforementioned consideration, we choose <strong>NDCG</strong> as our model metrics. </p>
-<h2 id="2-related-work">2. Related Work</h2>
+<h2 id="2-related-work">2. Related Work<a class="headerlink" href="#2-related-work" title="Permanent link">&para;</a></h2>
 <hr />
 <ol>
 <li>
@@ -216,36 +216,36 @@ behaviour. In: Int. Society for Music Information Retrieval Conf. (ISMIR’11) (
 systems, pp. 131–138. ACM (2012)</p>
 </li>
 </ol>
-<h2 id="3-dataset-and-features">3. Dataset and Features</h2>
+<h2 id="3-dataset-and-features">3. Dataset and Features<a class="headerlink" href="#3-dataset-and-features" title="Permanent link">&para;</a></h2>
 <hr />
-<p>The dataset obtained from http://www.last.fm, online music system. 
+<p>The dataset obtained from <a href="http://www.last.fm">http://www.last.fm</a>, online music system. 
 The dataset itself contains several files </p>
 <ol>
 <li><code>artists.dat</code></li>
 </ol>
 <p>Contains features : </p>
-<pre><code>- `name`: string : contain artistname
+<div class="language-text highlight"><pre><span></span><code>- `name`: string : contain artistname
 - `id` : integer : contain artistID
 - `url`:string : link to artist page
 - `pictureURL`:string : link to artist picture
-</code></pre>
+</code></pre></div>
 <ol>
 <li><code>user_artists.dat</code></li>
 </ol>
 <p>Contains features : </p>
-<pre><code>- `userID`: string : contain userID
+<div class="language-text highlight"><pre><span></span><code>- `userID`: string : contain userID
 - `artistsID`: string : contain artistID
 - `weight`: int: number of playcounts song from given `artistID`
-</code></pre>
-<h2 id="4-methods">4. Methods</h2>
+</code></pre></div>
+<h2 id="4-methods">4. Methods<a class="headerlink" href="#4-methods" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="41-recommender-system-introduction">4.1. Recommender System Introduction</h3>
+<h3 id="41-recommender-system-introduction">4.1. Recommender System Introduction<a class="headerlink" href="#41-recommender-system-introduction" title="Permanent link">&para;</a></h3>
 <p>A recommender system is a type of information filtering system that predicts and suggests items or content that a user might be interested in. Its main objective is to provide personalized recommendations based on the user's preferences, historical data, and patterns of behavior.</p>
 <p>Recommender systems are commonly used in e-commerce platforms, streaming services, social media platforms, and various other applications where there is a large amount of data and a need to assist users in finding relevant items or content. These systems employ algorithms and techniques to analyze user data, item characteristics, and other relevant factors to generate recommendations.
 We have implicit feedback dataset that reflects number of user plays from certain artist.</p>
 <p>Recommender Problem </p>
-<pre><code>   Given item from all catalogue, we will predict the utility of each item to each user, we want to maximize the utility.
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>   Given item from all catalogue, we will predict the utility of each item to each user, we want to maximize the utility.
+</code></pre></div>
 <hr />
 <p>Data Requirement</p>
 <p>To develop recommender system, we need data, contain preferences /utility, it's called as utility matrix. </p>
@@ -259,9 +259,9 @@ We have implicit feedback dataset that reflects number of user plays from certai
 <p>Recommender System Approach </p>
 <p><img alt="Approaches" src="https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Approach.png" /></p>
 <p>In this approach we are dealing with implicit feedback data, hence we can utilize collaborative filtering approach. </p>
-<h3 id="42baseline-popularity-recommendation">4.2.Baseline (Popularity Recommendation)</h3>
+<h3 id="42baseline-popularity-recommendation">4.2.Baseline (Popularity Recommendation)<a class="headerlink" href="#42baseline-popularity-recommendation" title="Permanent link">&para;</a></h3>
 <p>How to generate recommendation : recommend item that has the most interaction (most played in this context. )</p>
-<h3 id="43-alternating-least-square-implicit-feedback-matrix-factorization">4.3. Alternating Least Square (Implicit Feedback Matrix Factorization)</h3>
+<h3 id="43-alternating-least-square-implicit-feedback-matrix-factorization">4.3. Alternating Least Square (Implicit Feedback Matrix Factorization)<a class="headerlink" href="#43-alternating-least-square-implicit-feedback-matrix-factorization" title="Permanent link">&para;</a></h3>
 <p>Hu, Yifan, Yehuda Koren, and Chris Volinsky. 2008. “Collaborative Filtering for Implicit Feedback Datasets.” In 2008 Eighth IEEE International Conference on Data Mining, 263–72. IEEE.</p>
 <p>Implicit Data does not like explicit data, does not have scale of preference from like to dislike, in implicit scenario we can only sure about it scales,
 commonly objective are to predict the utility (such as rating)</p>
@@ -307,9 +307,9 @@ y_{i} = \text{item  factor}\
 \end{equation}</p>
 <p>$$
 the</p>
-<h3 id="43-bayesian-personalized-ranking">4.3. Bayesian Personalized Ranking</h3>
+<h3 id="43-bayesian-personalized-ranking">4.3. Bayesian Personalized Ranking<a class="headerlink" href="#43-bayesian-personalized-ranking" title="Permanent link">&para;</a></h3>
 <p>Rendle, Steffen, Christoph Freudenthaler, Zeno Gantner, and Lars Schmidt-Thieme. 2009. “BPR: Bayesian Personalized Ranking from Implicit Feedback.” In Proceedings of the Twenty-Fifth Conference on Uncertainty in Artificial Intelligence, 452–61. AUAI Press.</p>
-<h3 id="44-logistic-matrix-factorization">4.4. Logistic Matrix Factorization</h3>
+<h3 id="44-logistic-matrix-factorization">4.4. Logistic Matrix Factorization<a class="headerlink" href="#44-logistic-matrix-factorization" title="Permanent link">&para;</a></h3>
 <p>Johnson, Christopher C. 2014. “Logistic Matrix Factorization for Implicit Feedback Data.” Advances in Neural Information Processing Systems 27.</p>
 <p>The concept is similar to Alternating Least Squares, such which weight interaction with alpha, it only modified the c by adding the log and some epsilon
 $$\begin{equation}
@@ -331,44 +331,41 @@ p(l_{ui}|x_{user},y_{item},b_{user},b_{item}) = \frac{exp((x_{user}^T\cdot y_{it
 \text{Add another term, Bernoulli Trials, in this case we consider user and items interaction are independent}
 \text{our objective become}\
 \text{Maximize} \rightarrow(ProbaInteractions(R)|X,Y,bias) = \Pi_{u,i}p(l_{ui}|x_{user},y_{item},b_{user},b_{item})^{\alpha r_{ui}}(1-p(l_{ui}|x_{user},y_{item},b_{user},b_{item}))^{1-(\alpha r_{ui})}\
-\text{Hence the computation are expensive we can use Log --&gt; Log Likelihood}\
+\text{Hence the computation are expensive we can use Log &rarr; Log Likelihood}\
 \text{to obtain parameter that maximize probability of interaction}\
 log p(X,X,bias|R) = \sum_{u,i} \alpha r_{u,i}((x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-(1+\alpha r_{u,i}) log(1+exp(x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-\text{some regulatizaton on latent factors (ridge regularization)} (\lambda/2 ||x_{u}||^2) - (\lambda/2 ||y_{i}||^2)
 \end{split}
 \end{equation}</p>
 <p>$$
 To update the weight (bias,latent factors) we can use Gradient Descent , most common in Recommender System is <strong>Stochastic Gradient Descent</strong>. </p>
-<h2 id="5experiments-results-discussion">5.Experiments / Results / Discussion</h2>
+<h2 id="5experiments-results-discussion">5.Experiments / Results / Discussion<a class="headerlink" href="#5experiments-results-discussion" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="51-data-splitting-strategy">5.1. Data Splitting Strategy</h3>
+<h3 id="51-data-splitting-strategy">5.1. Data Splitting Strategy<a class="headerlink" href="#51-data-splitting-strategy" title="Permanent link">&para;</a></h3>
 <p><img alt="Splitting" src="https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Splitting.png" /></p>
-<h3 id="52-data-preprocessing">5.2. Data Preprocessing</h3>
-<h4 id="521-mapping-userid-artistsid-into-ordered-id">5.2.1 Mapping  <code>userID</code> &amp; <code>artistsID</code> into Ordered ID</h4>
-<p>Our data requirement is in utility matrix form, it would be hard to access each element in utility matrix since utility matrix has ordered id. We need to create mapping for both <code>userID, artistsID to orderedID</code> and vice versa.Our Mapping is in python dictionary object. </p>
-<pre><code>
-user_id_to_ordered_id = {
-    userID:ordereduserID
-}
-
-example : 
-user_id_to_ordered_id = {
-    2:1
-}
-
-
-</code></pre>
-<p>for later usage (such as : API) we will serialize object using <code>joblib.dump</code> function as pickle file (<code>.pkl</code>), named : 
+<h3 id="52-data-preprocessing">5.2. Data Preprocessing<a class="headerlink" href="#52-data-preprocessing" title="Permanent link">&para;</a></h3>
+<h4 id="521-mapping-userid-artistsid-into-ordered-id">5.2.1 Mapping  <code>userID</code> &amp; <code>artistsID</code> into Ordered ID<a class="headerlink" href="#521-mapping-userid-artistsid-into-ordered-id" title="Permanent link">&para;</a></h4>
+<p>Our data requirement is in utility matrix form, it would be hard to access each element in utility matrix since utility matrix has ordered id. We need to create mapping for both <code>userID, artistsID to orderedID</code> and vice versa.Our Mapping is in python dictionary object. 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>user_id_to_ordered_id = {
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    userID:ordereduserID
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>}
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>example : 
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>user_id_to_ordered_id = {
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    2:1
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>}
+</span></code></pre></div>
+for later usage (such as : API) we will serialize object using <code>joblib.dump</code> function as pickle file (<code>.pkl</code>), named : 
 1. <code>user_id_to_ordered_id.pkl</code>
 2. <code>ordered_id_to_user_id.pkl</code>
 3. <code>artist_id_to_ordered_id.pkl</code>
 4. <code>ordered_id_to_artist_id.pkl</code></p>
-<h3 id="53-model-selection">5.3. Model Selection</h3>
+<h3 id="53-model-selection">5.3. Model Selection<a class="headerlink" href="#53-model-selection" title="Permanent link">&para;</a></h3>
 <p>Result : </p>
 <table>
 <thead>
 <tr>
 <th align="right">No</th>
-<th align="right">precision @10</th>
+<th align="right">precision <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/10" title="GitHub User: 10">@10</a></th>
 <th align="right">map@10</th>
 <th align="right">ndcg@10</th>
 <th align="right">auc@10</th>
@@ -402,8 +399,8 @@ user_id_to_ordered_id = {
 </tr>
 </tbody>
 </table>
-<p>from several metrics above we can see that <code>AlternatingLeastSquares</code> outperform other models --&gt; move to Hyperparameter Tuning Phase </p>
-<h3 id="54-hyperparameter-tuning">5.4. Hyperparameter Tuning</h3>
+<p>from several metrics above we can see that <code>AlternatingLeastSquares</code> outperform other models &rarr; move to Hyperparameter Tuning Phase </p>
+<h3 id="54-hyperparameter-tuning">5.4. Hyperparameter Tuning<a class="headerlink" href="#54-hyperparameter-tuning" title="Permanent link">&para;</a></h3>
 <p>In this process we will find the best parameters pair for our best selected models,<code>AlternatingLeastSquares</code>. </p>
 <p>Hyperparameters that are available in  <code>AlternatingLeastSquares</code> models are : </p>
 <ol>
@@ -417,12 +414,12 @@ user_id_to_ordered_id = {
 <ol>
 <li><code>regularization</code> </li>
 </ol>
-<p>number of how strong we imposed regularization on weights, this due to the sparsity of the data, we dont want the weight become so big --&gt; prone to overfitting. For this hyperparameter we will try some values ranging from <code>0.01</code> to <code>0.2</code></p>
+<p>number of how strong we imposed regularization on weights, this due to the sparsity of the data, we dont want the weight become so big &rarr; prone to overfitting. For this hyperparameter we will try some values ranging from <code>0.01</code> to <code>0.2</code></p>
 <p>Some approach in hyperparameter tuning : </p>
 <ol>
 <li><strong>GridSearch</strong> </li>
 </ol>
-<p>This approach simply fit all combinations from hyperparameter candidate, let say we have 3 hyperparameter with each candidate value of 3, number of model fitting is 3<em>3</em>3 = 27 times fitting.This is not <strong>efficient</strong> approach, especially with recommender system model with huge size of data. </p>
+<p>This approach simply fit all combinations from hyperparameter candidate, let say we have 3 hyperparameter with each candidate value of 3, number of model fitting is 3*3*3 = 27 times fitting.This is not <strong>efficient</strong> approach, especially with recommender system model with huge size of data. </p>
 <ol>
 <li><strong>RandomizedSearch</strong></li>
 </ol>
@@ -435,18 +432,18 @@ user_id_to_ordered_id = {
 Don't worry we don't have to understand all right now, and we will not coding it from scratch, we will use <a href="https://optuna.org/"><strong>optuna</strong></a> package for now. </p>
 </li>
 </ol>
-<p>For hyperparameter set up we will perform Cross-Validation with --&gt; <strong>K-Fold Cross Validation</strong></p>
+<p>For hyperparameter set up we will perform Cross-Validation with &rarr; <strong>K-Fold Cross Validation</strong></p>
 <p><img alt="KFold" src="https://zitaoshen.rbind.io/project/machine_learning/machine-learning-101-cross-vaildation/featured.png" /> <a href="https://zitaoshen.rbind.io/project/machine_learning/machine-learning-101-cross-vaildation/featured.png">source</a></p>
 <p>Best parameters  : 
 1. <code>factors</code> : <strong>100</strong>
 2. <code>alpha</code> : <strong>0.5097051938957499</strong>
 3. <code>regularization</code> : <strong>0.16799704422342204</strong></p>
-<h3 id="55-evaluation">5.5 Evaluation</h3>
+<h3 id="55-evaluation">5.5 Evaluation<a class="headerlink" href="#55-evaluation" title="Permanent link">&para;</a></h3>
 <p>On final evaluation we measured tuned model on test set, the result </p>
 <table>
 <thead>
 <tr>
-<th align="right">precision @10</th>
+<th align="right">precision <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/10" title="GitHub User: 10">@10</a></th>
 <th align="right">map@10</th>
 <th align="right">ndcg@10</th>
 <th align="right">auc@10</th>
@@ -461,59 +458,55 @@ Don't worry we don't have to understand all right now, and we will not coding it
 </tr>
 </tbody>
 </table>
-<h3 id="56-sanity-check-on-recommendation">5.6. Sanity Check on Recommendation</h3>
-<h2 id="6conclusion">6.Conclusion</h2>
+<h3 id="56-sanity-check-on-recommendation">5.6. Sanity Check on Recommendation<a class="headerlink" href="#56-sanity-check-on-recommendation" title="Permanent link">&para;</a></h3>
+<h2 id="6conclusion">6.Conclusion<a class="headerlink" href="#6conclusion" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="61-further-work">6.1. Further Work</h3>
+<h3 id="61-further-work">6.1. Further Work<a class="headerlink" href="#61-further-work" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Using more user oriented metrics such as  <strong>Diversity, Serendipity, Novelty</strong></li>
 <li>Using Multistage Approach </li>
 <li>Apply Graph Data (Friends)</li>
 <li>Use Metadata as Features,for Using Factorization Machine</li>
 </ol>
-<h2 id="7-product">7. Product</h2>
+<h2 id="7-product">7. Product<a class="headerlink" href="#7-product" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="71-api">7.1. API</h3>
+<h3 id="71-api">7.1. API<a class="headerlink" href="#71-api" title="Permanent link">&para;</a></h3>
 <p><img alt="APIS" src="https://cdn.ttgtmedia.com/rms/onlineimages/how_an_api_works-f_mobile.png" /></p>
 <p><a href="https://cdn.ttgtmedia.com/rms/onlineimages/how_an_api_works-f_mobile.png">src</a></p>
 <p>API (Application Programming Interface) is a set of rules that allows different software applications to communicate with each other. It provides a standardized interface for accessing and utilizing functionalities or data from external services, enabling seamless integration and interoperability between software components.</p>
-<h4 id="711-running-api">7.1.1 Running API</h4>
+<h4 id="711-running-api">7.1.1 Running API<a class="headerlink" href="#711-running-api" title="Permanent link">&para;</a></h4>
 <p>To run API : </p>
-<pre><code>cd song_recommender
-python3 src/api.py
-</code></pre>
-<p>check localhost:8000/docs for documentation.</p>
-<h4 id="712-request-format">7.1.2 Request Format</h4>
-<pre><code>curl -X 'POST' \
-  'http://localhost:8080/recommend/' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  &quot;userid&quot;: 2,
-  &quot;item_to_recommend&quot;: 10
-}'
-
-
-</code></pre>
-<h4 id="713-response-format">7.1.3 Response Format</h4>
-<pre><code>{
-  &quot;recommended_artist&quot;: [
-    &quot;Michael Jackson&quot;,
-    &quot;Roxette&quot;,
-    &quot;a-ha&quot;,
-    &quot;Lily Allen&quot;,
-    &quot;Annie Lennox&quot;,
-    &quot;Björk&quot;,
-    &quot;Rammstein&quot;,
-    &quot;Elvis Presley&quot;,
-    &quot;Norah Jones&quot;,
-    &quot;Vangelis&quot;
-  ]
-}
-
-
-</code></pre>
-<h2 id="8-experiment-with-your-own">8. Experiment with your own.</h2></p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd song_recommender
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python3 src/api.py
+</span></code></pre></div>
+check localhost:8000/docs for documentation.</p>
+<h4 id="712-request-format">7.1.2 Request Format<a class="headerlink" href="#712-request-format" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -X &#39;POST&#39; \
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  &#39;http://localhost:8080/recommend/&#39; \
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  -H &#39;accept: application/json&#39; \
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  -H &#39;Content-Type: application/json&#39; \
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  -d &#39;{
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  &quot;userid&quot;: 2,
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  &quot;item_to_recommend&quot;: 10
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>}&#39;
+</span></code></pre></div>
+<h4 id="713-response-format">7.1.3 Response Format<a class="headerlink" href="#713-response-format" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  &quot;recommended_artist&quot;: [
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    &quot;Michael Jackson&quot;,
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    &quot;Roxette&quot;,
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    &quot;a-ha&quot;,
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    &quot;Lily Allen&quot;,
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    &quot;Annie Lennox&quot;,
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    &quot;Björk&quot;,
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    &quot;Rammstein&quot;,
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    &quot;Elvis Presley&quot;,
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    &quot;Norah Jones&quot;,
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    &quot;Vangelis&quot;
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  ]
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>}
+</span></code></pre></div>
+<h2 id="8-experiment-with-your-own">8. Experiment with your own.<a class="headerlink" href="#8-experiment-with-your-own" title="Permanent link">&para;</a></h2></p>
     </article>
 </section>
 <!-- endblock -->
