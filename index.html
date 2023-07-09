@@ -513,7 +513,14 @@ check localhost:8000/docs for documentation.</p>
 </span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>  ]
 </span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>}
 </span></code></pre></div>
-<h2 id="8-experiment-with-your-own">8. Experiment with your own.<a class="headerlink" href="#8-experiment-with-your-own" title="Permanent link">&para;</a></h2></p>
+<h2 id="8-experiment-with-your-own">8. Experiment with your own.<a class="headerlink" href="#8-experiment-with-your-own" title="Permanent link">&para;</a></h2>
+<p>To Run retraining process 
+```cd artist_recommender
+python3 src/retrain_model.py --experiment_name='somename' --training_filename='file.csv'</p>
+<p><code>``
+Output from retraining 
+1. Mapper</code>userID<code>and</code>artistID<code>--&gt; mapping folder {experiment_name}_&lt;anymapper&gt;.pkl
+2. trained model saved in</code>f"../models/{experiment_name}_als_tuned_model.pkl"`</p></p>
     </article>
 </section>
 <!-- endblock -->
