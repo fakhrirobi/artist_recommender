@@ -451,3 +451,11 @@ curl -X 'POST' \
 ```
 
 ## 8. Experiment with your own.
+To Run retraining process 
+```cd artist_recommender
+python3 src/retrain_model.py --experiment_name='somename' --training_filename='file.csv'
+
+```
+Output from retraining 
+1. Mapper `userID` and `artistID` --> mapping folder {experiment_name}_<anymapper>.pkl
+2. trained model saved in `f"../models/{experiment_name}_als_tuned_model.pkl"`
