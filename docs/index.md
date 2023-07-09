@@ -234,7 +234,7 @@ x_{u} & y_{i} \text{called as latent factor }\\
 \end{split}\\
 \end{equation}\\
 
-```math
+```
 the
 
 ### 4.3. Bayesian Personalized Ranking 
