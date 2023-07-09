@@ -188,8 +188,6 @@ commonly objective are to predict the utility (such as rating)
 Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}-\hat{r_{user=u,item=i}})^2 \\
 with\\
 \hat{r_{u,i}} = \text{predicted ratings on user u and item i}\\
-```
-
 \end{split}\\
 \end{equation}\\
 ```
@@ -223,7 +221,7 @@ with\\
 \alpha = \text{weight (hyperparameter)}\\
 x_{u}= \text{user preference factor}\\
 y_{i} = \text{item  factor}\\
-\text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infin \\
+\text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infty \\
 \text{we can convert as } p_{ui} \\ 
     \begin{dcases}
         r_{ui} > 0 \rightarrow p_{ui} = 1 \\
