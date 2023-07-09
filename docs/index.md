@@ -40,10 +40,55 @@ Possible Solutions :
 | 4  | Predict the ranking from user to artists              | Ranking        | Pairwise Ranking      | Ranking Metrics (ex : NDCG,MAP,MRR,etc)                |
 
 ### 1.5 Objective Metrics 
+In this approach we will approach to Predict the ranking from user to artists. 
+| No |                                                                                     Metrics |                                                                                                        Advantage | Disadvantage                                                       |
+|---:|--------------------------------------------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------:|--------------------------------------------------------------------|
+| 1  | Normalized Discounted Cumulative Gain (Measure average corrent prediction  of each metrics) | 1.Discounting mechanism, it will penalty upper rank if incorrectly predicted (Higher ranked item more important) | 1. Not Quite Intuitive in Explanation 2. Not directly optimizeable |
+| 2  | Mean Average Precision (Measure Rolling Precision between all recommended items)            | 1.Intuitive to be explained                                                                                      |  1. Does not care about ordering                                   |
 
 
+DCG Formulas : 
+$$\begin{equation}
+\begin{split}
+1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \\
+\text{DCG = Discounted Cumulative Gain} \\
+k= \text{number of items in recommendation}\\
+rel[i] = \text{relevance score at item in position i th}\\
+\text{relevance score could be any function / could be customized}
+
+\end{split}
+\end{equation}
+$$
+
+$$\begin{equation}
+\begin{split}
+1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\
+NDCG = \frac{DCG}{IDCG}\\
+\text{IDCG = perfect DCG score when item ranked correctly.}
+\end{split}
+\end{equation}
+$$
 
 
+MAP Formulas : 
+$$\begin{equation}
+\begin{split}
+1. AP @K = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \\
+AP \text{@K}= \text{Average Precision at K-items} \\ 
+\end{split}
+\end{equation}
+$$
+
+$$\begin{equation}
+\begin{split}
+\text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\\
+U = \text{all users}
+
+\end{split}
+\end{equation}
+$$
+
+With aforementioned consideration, we choose **NDCG** as our model metrics. 
 
 
 ## 2. Related Work 
@@ -65,41 +110,21 @@ The dataset itself contains several files
    
    Contains features : 
 
-    - `name`
-    - `url`
-    - `pictureURL`
-  
+    - `name`: string : contain artistname
+    - `id` : integer : contain artistID
+    - `url`:string : link to artist page
+    - `pictureURL`:string : link to artist picture
 
-2. `tags.dat`
-      
-   Contains features : 
-
-    - `tagID`
-    - `tagValue`
   
-3. `user_artists.dat`
+2. `user_artists.dat`
    
    Contains features : 
 
-    - `userID`
-    - `artistsID`
-    - `pictureURL`
+    - `userID`: string : contain userID
+    - `artistsID`: string : contain artistID
+    - `weight`: int: number of playcounts song from given `artistID`
   
-4. `user_friends.dat`
-      
-   Contains features : 
 
-    - `name`
-    - `url`
-    - `pictureURL`
-  
-5. `user_taggedartists.dat`
-      
-   Contains features : 
-
-    - `name`
-    - `url`
-    - `pictureURL`
 
 
 
@@ -109,23 +134,31 @@ ___
 
 ### 4.1. Recommender System Introduction
 
-Recomender system
-Problem 
 
+A recommender system is a type of information filtering system that predicts and suggests items or content that a user might be interested in. Its main objective is to provide personalized recommendations based on the user's preferences, historical data, and patterns of behavior.
+
+Recommender systems are commonly used in e-commerce platforms, streaming services, social media platforms, and various other applications where there is a large amount of data and a need to assist users in finding relevant items or content. These systems employ algorithms and techniques to analyze user data, item characteristics, and other relevant factors to generate recommendations.
 We have implicit feedback dataset that reflects number of user plays from certain artist.
 
-Given those utility matrix we will recommend to each user what artist they might like. 
+---
+Recommender System Approach 
 
 
-The recommendation will be in form such as 
-1. "Since you listen to artist X" --> give list 
-2. etc. 
+---
+Data Requirement
+To develop recommender system, we need data, contain preferences 
 
-Since we have enough utility matrix / implicit feedback we will start with collaborative filtering approach. 
+A utility matrix, also known as a preference matrix or rating matrix, is a fundamental concept in recommender systems. It represents the preferences or ratings of users for different items in a structured matrix format.
 
-Collaborative filtering approach can be divided into several approaches 
+In a utility matrix, the rows represent users, and the columns represent items. Each cell in the matrix corresponds to a user's rating or preference for a particular item. The ratings can be explicit, such as numerical scores or ratings given by users, or implicit, such as purchase history, views, or clicks.
 
-![Branching in Collaborative Filtering](https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Collaborative%20Filtering%20Branching.png)
+![Example of utility matirx](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlYyF0E0xvd1usYm8aj_GysgSkD0YaDPRqg&usqp=CAU)
+
+[src](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlYyF0E0xvd1usYm8aj_GysgSkD0YaDPRqg&usqp=CAU)
+
+Types of utility matirx : 
+![Types of utility](https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/utility.png)
+
 
 
 ### 4.2.Baseline (Popularity Recommendation)
