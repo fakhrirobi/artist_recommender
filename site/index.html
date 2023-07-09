@@ -170,39 +170,41 @@ Our Catalogue is Quite Huge contain ~17632 Artists. </p>
 | 1  | Normalized Discounted Cumulative Gain (Measure average corrent prediction  of each metrics) | 1.Discounting mechanism, it will penalty upper rank if incorrectly predicted (Higher ranked item more important) | 1. Not Quite Intuitive in Explanation 2. Not directly optimizeable |
 | 2  | Mean Average Precision (Measure Rolling Precision between all recommended items)            | 1.Intuitive to be explained                                                                                      |  1. Does not care about ordering                                   |</p>
 <p>DCG Formulas : 
-$$\begin{equation}
-\begin{split}
-1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \\\
-\text{DCG = Discounted Cumulative Gain} \\\
-k= \text{number of items in recommendation}\\\
-rel[i] = \text{relevance score at item in position i th}\\\
-\text{relevance score could be any function / could be customized}</p>
-<p>\end{split}
-\end{equation}
-$$</p>
-<div class="arithmatex">\[\begin{equation}
-\begin{split}
-1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\\\\\
-NDCG = \frac{DCG}{IDCG}\\\\\\
-\text{IDCG = perfect DCG score when item ranked correctly.}
-\end{split}
-\end{equation}
-\]</div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>\begin{equation}\\
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>\begin{split}\\
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \\
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>\text{DCG = Discounted Cumulative Gain} \\
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>k= \text{number of items in recommendation}\\
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>rel[i] = \text{relevance score at item in position i th}\\
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>\text{relevance score could be any function / could be customized}
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>\end{split}\\
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>\end{equation}\\
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>\begin{equation}\\
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>\begin{split}\\
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>NDCG = \frac{DCG}{IDCG}\\
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>\text{IDCG = perfect DCG score when item ranked correctly.}\\
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>\end{split}\\
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>\end{equation}\\
+</span></code></pre></div>
 <p>MAP Formulas : 
-$$\begin{equation}
-\begin{split}
-1. AP <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a> = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \\\
-AP \text{<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a>}= \text{Average Precision at K-items} \\\ 
-\end{split}
-\end{equation}
-$$</p>
-<p>$$\begin{equation}
-\begin{split}
-\text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\\\
-U = \text{all users}</p>
-<p>\end{split}
-\end{equation}
-$$</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>\begin{equation}\\
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>\begin{split}\\
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>1. AP @K = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \\
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>AP \text{@K}= \text{Average Precision at K-items} \\ 
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>\end{split}\\
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>\end{equation}\\
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>\begin{equation}\\
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>\begin{split}\\
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>\text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\\
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>U = \text{all users}\\
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>\end{split}\\
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>\end{equation}\\
+</span></code></pre></div></p>
 <p>With aforementioned consideration, we choose <strong>NDCG</strong> as our model metrics. </p>
 <h2 id="2-related-work">2. Related Work<a class="headerlink" href="#2-related-work" title="Permanent link">&para;</a></h2>
 <hr />
@@ -265,78 +267,93 @@ We have implicit feedback dataset that reflects number of user plays from certai
 <p>Hu, Yifan, Yehuda Koren, and Chris Volinsky. 2008. “Collaborative Filtering for Implicit Feedback Datasets.” In 2008 Eighth IEEE International Conference on Data Mining, 263–72. IEEE.</p>
 <p>Implicit Data does not like explicit data, does not have scale of preference from like to dislike, in implicit scenario we can only sure about it scales,
 commonly objective are to predict the utility (such as rating)</p>
-<p>$$\begin{equation}
-\begin{split}
-Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}-\hat{r_{user=u,item=i}})^2 \\\
-with\\\
-\hat{r_{u,i}} = \text{predicted ratings on user u and item i}</p>
-<p>\end{split}
-\end{equation}</p>
-<p>$$</p>
-<p>$$\begin{equation}
-\begin{split}
-\text{ if we come from matrix factorization model,then } \\\ 
-Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}- \mu - b_{user}-b_{item}-q_{u}\cdot p_{i})^2 \\\
-with\\\
-b_{user} = \text{user bias}\\\
-b_{item}= \text{item bias}\\\
-p_{u}= \text{user preference factor}\\\
-q_{i} = \text{item  factor}\\\</p>
-<p>p_{u} &amp; q_{i} \text{called as latent factor }\\\
-\end{split}
-\end{equation}</p>
-<p>$$</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>\begin{equation}\\
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>\begin{split}\\
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}-\hat{r_{user=u,item=i}})^2 \\
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>with\\
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>\hat{r_{u,i}} = \text{predicted ratings on user u and item i}\\
+</span></code></pre></div>
+<p>\end{split}\
+\end{equation}\
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>```math
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>\begin{equation}\\
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>\begin{split}\\
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>\text{ if we come from matrix factorization model,then } \\ 
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}- \mu - b_{user}-b_{item}-q_{u}\cdot p_{i})^2 \\
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>with\\
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>b_{user} = \text{user bias}\\
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>b_{item}= \text{item bias}\\
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>p_{u}= \text{user preference factor}\\
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>q_{i} = \text{item  factor}\\
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>p_{u} &amp; q_{i} \text{called as latent factor }\\
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>\end{split}\\
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>\end{equation}\\
+</span></code></pre></div></p>
 <p>in implicit feedback our confidence ranging from <code>0</code> to <code>1</code>, so we need to adjust our Objectives </p>
-<p>$$\begin{equation}
-\begin{split}
-\text{ if we come from matrix factorization model,then } \\\ 
-Minimize \rightarrow \sum_{u \in U} \sum_{i \in I} c_{ui}(p_{ui}- x_{u}^T \cdot y_{i})^2 + \lambda (\sum_{u \in U}||x_{u} || + \sum_{i \in I}||y_{i} ||) \\\
-with\\\
-(c_{ui} = 1 + \alpha r_{ui} )\text{ denotes as scaling factor from implicit interaction, 1 if } r_{ui} = 0 \\\</p>
-<p>\alpha = \text{weight (hyperparameter)}
-x_{u}= \text{user preference factor}\\\
-y_{i} = \text{item  factor}\\\
-\text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infin \\\
-\text{we can convert as } p_{ui} \\\ 
-    \begin{dcases}
-        r_{ui} &gt; 0 \rightarrow p_{ui} = 1 \\\
-         r_{ui} = 0 \rightarrow p_{ui} = 0 \\\
-    \end{dcases} \\\</p>
-<p>x_{u} &amp; y_{i} \text{called as latent factor }\\\
-\end{split}
-\end{equation}</p>
-<p>$$
-the</p>
-<h3 id="43-bayesian-personalized-ranking">4.3. Bayesian Personalized Ranking<a class="headerlink" href="#43-bayesian-personalized-ranking" title="Permanent link">&para;</a></h3>
-<p>Rendle, Steffen, Christoph Freudenthaler, Zeno Gantner, and Lars Schmidt-Thieme. 2009. “BPR: Bayesian Personalized Ranking from Implicit Feedback.” In Proceedings of the Twenty-Fifth Conference on Uncertainty in Artificial Intelligence, 452–61. AUAI Press.</p>
-<h3 id="44-logistic-matrix-factorization">4.4. Logistic Matrix Factorization<a class="headerlink" href="#44-logistic-matrix-factorization" title="Permanent link">&para;</a></h3>
-<p>Johnson, Christopher C. 2014. “Logistic Matrix Factorization for Implicit Feedback Data.” Advances in Neural Information Processing Systems 27.</p>
-<p>The concept is similar to Alternating Least Squares, such which weight interaction with alpha, it only modified the c by adding the log and some epsilon
-$$\begin{equation}
-\begin{split}
-l_{ui} = \text{similar to } p_{ui} \text{in ALS} \\\ 
-l_{ui} \\\ 
-    \begin{dcases}
-        \text{user interact with item} \rightarrow l_{ui} = 1 \\\
-        \text{user not interact with item} \rightarrow l_{ui} = 0
-    \end{dcases} \\\</p>
-<p>\text{from this we could approach this through probabilistic approach, simply find function that output probability, yes you are right, Sigmoid function } \\\
-\text{Recall again , we still use matrix factorization approach}\\\
-\text{Hence you will meet again } b_{user},b_{item},\text{latent factors : } x_{user},y_{item}\\\
-\text{Hence, probability of user interacting with an item,given factors+bias is linear function which converted as probability approx. through sigmoid}\\\
-p(l_{ui}|x_{user},y_{item},b_{user},b_{item}) = \frac{exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}{1+exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}\\\</p>
-<p>\text{we are not done yet, we just output the probability, now we need to optimize weight and factors } x_{user},y_{item},b_{user},b_{item} \\\
-\text{we can use Maximal Likelihood Estimation}\\\
-(c_{ui} = 1 + \alpha \cdot log(1+(r_{ui} / \epsilon)) )\text{ denotes as scaling factor from implicit interaction}\\\
-\text{Add another term, Bernoulli Trials, in this case we consider user and items interaction are independent}
-\text{our objective become}\\\
-\text{Maximize} \rightarrow(ProbaInteractions(R)|X,Y,bias) = \Pi_{u,i}p(l_{ui}|x_{user},y_{item},b_{user},b_{item})^{\alpha r_{ui}}(1-p(l_{ui}|x_{user},y_{item},b_{user},b_{item}))^{1-(\alpha r_{ui})}\\\
-\text{Hence the computation are expensive we can use Log &rarr; Log Likelihood}\\\
-\text{to obtain parameter that maximize probability of interaction}\\\
-log p(X,X,bias|R) = \sum_{u,i} \alpha r_{u,i}((x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-(1+\alpha r_{u,i}) log(1+exp(x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-\text{some regulatizaton on latent factors (ridge regularization)} (\lambda/2 ||x_{u}||^2) - (\lambda/2 ||y_{i}||^2)
-\end{split}
-\end{equation}</p>
-<p>$$
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>\begin{equation}\\
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>\begin{split}\\
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>\text{ if we come from matrix factorization model,then } \\ 
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Minimize \rightarrow \sum_{u \in U} \sum_{i \in I} c_{ui}(p_{ui}- x_{u}^T \cdot y_{i})^2 + \lambda (\sum_{u \in U}||x_{u} || + \sum_{i \in I}||y_{i} ||) \\
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>with\\
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>(c_{ui} = 1 + \alpha r_{ui} )\text{ denotes as scaling factor from implicit interaction, 1 if } r_{ui} = 0 \\
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>\alpha = \text{weight (hyperparameter)}\\
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>x_{u}= \text{user preference factor}\\
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>y_{i} = \text{item  factor}\\
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>\text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infin \\
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>\text{we can convert as } p_{ui} \\ 
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    \begin{dcases}
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        r_{ui} &gt; 0 \rightarrow p_{ui} = 1 \\
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>         r_{ui} = 0 \rightarrow p_{ui} = 0 \\
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    \end{dcases} \\
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>x_{u} &amp; y_{i} \text{called as latent factor }\\
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>\end{split}\\
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>\end{equation}\\
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>```math
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>the
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>### 4.3. Bayesian Personalized Ranking 
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>Rendle, Steffen, Christoph Freudenthaler, Zeno Gantner, and Lars Schmidt-Thieme. 2009. “BPR: Bayesian Personalized Ranking from Implicit Feedback.” In Proceedings of the Twenty-Fifth Conference on Uncertainty in Artificial Intelligence, 452–61. AUAI Press.
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>### 4.4. Logistic Matrix Factorization
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>Johnson, Christopher C. 2014. “Logistic Matrix Factorization for Implicit Feedback Data.” Advances in Neural Information Processing Systems 27.
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>The concept is similar to Alternating Least Squares, such which weight interaction with alpha, it only modified the c by adding the log and some epsilon
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>```math
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>\begin{equation}
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>\begin{split}
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>l_{ui} = \text{similar to } p_{ui} \text{in ALS} \\ 
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>l_{ui} \\ 
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>    \begin{dcases}
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>        \text{user interact with item} \rightarrow l_{ui} = 1 \\
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>        \text{user not interact with item} \rightarrow l_{ui} = 0
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>    \end{dcases} \\
+</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>
+</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>\text{from this we could approach this through probabilistic approach, simply find function that output probability, yes you are right, Sigmoid function } \\
+</span><span id="__span-6-47"><a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>\text{Recall again , we still use matrix factorization approach}\\
+</span><span id="__span-6-48"><a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>\text{Hence you will meet again } b_{user},b_{item},\text{latent factors : } x_{user},y_{item}\\
+</span><span id="__span-6-49"><a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a>\text{Hence, probability of user interacting with an item,given factors+bias is linear function which converted as probability approx. through sigmoid}\\
+</span><span id="__span-6-50"><a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>p(l_{ui}|x_{user},y_{item},b_{user},b_{item}) = \frac{exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}{1+exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}\\
+</span><span id="__span-6-51"><a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a>
+</span><span id="__span-6-52"><a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a>\text{we are not done yet, we just output the probability, now we need to optimize weight and factors } x_{user},y_{item},b_{user},b_{item} \\
+</span><span id="__span-6-53"><a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a>\text{we can use Maximal Likelihood Estimation}\\
+</span><span id="__span-6-54"><a id="__codelineno-6-54" name="__codelineno-6-54" href="#__codelineno-6-54"></a>(c_{ui} = 1 + \alpha \cdot log(1+(r_{ui} / \epsilon)) )\text{ denotes as scaling factor from implicit interaction}\\
+</span><span id="__span-6-55"><a id="__codelineno-6-55" name="__codelineno-6-55" href="#__codelineno-6-55"></a>\text{Add another term, Bernoulli Trials, in this case we consider user and items interaction are independent}
+</span><span id="__span-6-56"><a id="__codelineno-6-56" name="__codelineno-6-56" href="#__codelineno-6-56"></a>\text{our objective become}\\
+</span><span id="__span-6-57"><a id="__codelineno-6-57" name="__codelineno-6-57" href="#__codelineno-6-57"></a>\text{Maximize} \rightarrow(ProbaInteractions(R)|X,Y,bias) = \Pi_{u,i}p(l_{ui}|x_{user},y_{item},b_{user},b_{item})^{\alpha r_{ui}}(1-p(l_{ui}|x_{user},y_{item},b_{user},b_{item}))^{1-(\alpha r_{ui})}\\
+</span><span id="__span-6-58"><a id="__codelineno-6-58" name="__codelineno-6-58" href="#__codelineno-6-58"></a>\text{Hence the computation are expensive we can use Log --&gt; Log Likelihood}\\
+</span><span id="__span-6-59"><a id="__codelineno-6-59" name="__codelineno-6-59" href="#__codelineno-6-59"></a>\text{to obtain parameter that maximize probability of interaction}\\
+</span><span id="__span-6-60"><a id="__codelineno-6-60" name="__codelineno-6-60" href="#__codelineno-6-60"></a>log p(X,X,bias|R) = \sum_{u,i} \alpha r_{u,i}((x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-(1+\alpha r_{u,i}) log(1+exp(x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-\text{some regulatizaton on latent factors (ridge regularization)} (\lambda/2 ||x_{u}||^2) - (\lambda/2 ||y_{i}||^2)
+</span><span id="__span-6-61"><a id="__codelineno-6-61" name="__codelineno-6-61" href="#__codelineno-6-61"></a>\end{split}
+</span><span id="__span-6-62"><a id="__codelineno-6-62" name="__codelineno-6-62" href="#__codelineno-6-62"></a>\end{equation}
+</span></code></pre></div>
 To update the weight (bias,latent factors) we can use Gradient Descent , most common in Recommender System is <strong>Stochastic Gradient Descent</strong>. </p>
 <h2 id="5experiments-results-discussion">5.Experiments / Results / Discussion<a class="headerlink" href="#5experiments-results-discussion" title="Permanent link">&para;</a></h2>
 <hr />
@@ -345,14 +362,14 @@ To update the weight (bias,latent factors) we can use Gradient Descent , most co
 <h3 id="52-data-preprocessing">5.2. Data Preprocessing<a class="headerlink" href="#52-data-preprocessing" title="Permanent link">&para;</a></h3>
 <h4 id="521-mapping-userid-artistsid-into-ordered-id">5.2.1 Mapping  <code>userID</code> &amp; <code>artistsID</code> into Ordered ID<a class="headerlink" href="#521-mapping-userid-artistsid-into-ordered-id" title="Permanent link">&para;</a></h4>
 <p>Our data requirement is in utility matrix form, it would be hard to access each element in utility matrix since utility matrix has ordered id. We need to create mapping for both <code>userID, artistsID to orderedID</code> and vice versa.Our Mapping is in python dictionary object. 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>user_id_to_ordered_id = {
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    userID:ordereduserID
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>}
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>example : 
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>user_id_to_ordered_id = {
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    2:1
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>user_id_to_ordered_id = {
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    userID:ordereduserID
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>}
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>example : 
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>user_id_to_ordered_id = {
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    2:1
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>}
 </span></code></pre></div>
 for later usage (such as : API) we will serialize object using <code>joblib.dump</code> function as pickle file (<code>.pkl</code>), named : 
 1. <code>user_id_to_ordered_id.pkl</code>
@@ -476,35 +493,35 @@ Don't worry we don't have to understand all right now, and we will not coding it
 <p>API (Application Programming Interface) is a set of rules that allows different software applications to communicate with each other. It provides a standardized interface for accessing and utilizing functionalities or data from external services, enabling seamless integration and interoperability between software components.</p>
 <h4 id="711-running-api">7.1.1 Running API<a class="headerlink" href="#711-running-api" title="Permanent link">&para;</a></h4>
 <p>To run API : </p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd song_recommender
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python3 src/api.py
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cd song_recommender
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>python3 src/api.py
 </span></code></pre></div>
 check localhost:8000/docs for documentation.</p>
 <h4 id="712-request-format">7.1.2 Request Format<a class="headerlink" href="#712-request-format" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -X &#39;POST&#39; \
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  &#39;http://localhost:8080/recommend/&#39; \
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  -H &#39;accept: application/json&#39; \
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  -H &#39;Content-Type: application/json&#39; \
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  -d &#39;{
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  &quot;userid&quot;: 2,
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  &quot;item_to_recommend&quot;: 10
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>}&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl -X &#39;POST&#39; \
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  &#39;http://localhost:8080/recommend/&#39; \
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  -H &#39;accept: application/json&#39; \
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  -H &#39;Content-Type: application/json&#39; \
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  -d &#39;{
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  &quot;userid&quot;: 2,
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  &quot;item_to_recommend&quot;: 10
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>}&#39;
 </span></code></pre></div>
 <h4 id="713-response-format">7.1.3 Response Format<a class="headerlink" href="#713-response-format" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  &quot;recommended_artist&quot;: [
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    &quot;Michael Jackson&quot;,
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    &quot;Roxette&quot;,
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    &quot;a-ha&quot;,
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    &quot;Lily Allen&quot;,
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    &quot;Annie Lennox&quot;,
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    &quot;Björk&quot;,
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    &quot;Rammstein&quot;,
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    &quot;Elvis Presley&quot;,
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    &quot;Norah Jones&quot;,
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    &quot;Vangelis&quot;
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  ]
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>{
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  &quot;recommended_artist&quot;: [
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    &quot;Michael Jackson&quot;,
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    &quot;Roxette&quot;,
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    &quot;a-ha&quot;,
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    &quot;Lily Allen&quot;,
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    &quot;Annie Lennox&quot;,
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    &quot;Björk&quot;,
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    &quot;Rammstein&quot;,
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    &quot;Elvis Presley&quot;,
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    &quot;Norah Jones&quot;,
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    &quot;Vangelis&quot;
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>  ]
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>}
 </span></code></pre></div>
 <h2 id="8-experiment-with-your-own">8. Experiment with your own.<a class="headerlink" href="#8-experiment-with-your-own" title="Permanent link">&para;</a></h2></p>
     </article>
