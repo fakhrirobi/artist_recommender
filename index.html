@@ -170,38 +170,38 @@ Our Catalogue is Quite Huge contain ~17632 Artists. </p>
 | 1  | Normalized Discounted Cumulative Gain (Measure average corrent prediction  of each metrics) | 1.Discounting mechanism, it will penalty upper rank if incorrectly predicted (Higher ranked item more important) | 1. Not Quite Intuitive in Explanation 2. Not directly optimizeable |
 | 2  | Mean Average Precision (Measure Rolling Precision between all recommended items)            | 1.Intuitive to be explained                                                                                      |  1. Does not care about ordering                                   |</p>
 <p>DCG Formulas : 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\
+\begin{split}\\\
 1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \\\
 \text{DCG = Discounted Cumulative Gain} \\\
 k= \text{number of items in recommendation}\\\
 rel[i] = \text{relevance score at item in position i th}\\\
 \text{relevance score could be any function / could be customized}</p>
-<p>\end{split}
-\end{equation}
+<p>\end{split}\\\
+\end{equation}\\\
 $$</p>
-<div class="arithmatex">\[\begin{equation}
-\begin{split}
+<div class="arithmatex">\[\begin{equation}\\\\\\
+\begin{split}\\\\\\
 1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\\\\\
 NDCG = \frac{DCG}{IDCG}\\\\\\
-\text{IDCG = perfect DCG score when item ranked correctly.}
-\end{split}
-\end{equation}
+\text{IDCG = perfect DCG score when item ranked correctly.}\\\\\\
+\end{split}\\\\\\
+\end{equation}\\\\\\
 \]</div>
 <p>MAP Formulas : 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\
+\begin{split}\\\
 1. AP <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a> = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \\\
 AP \text{<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a>}= \text{Average Precision at K-items} \\\ 
-\end{split}
-\end{equation}
+\end{split}\\\
+\end{equation}\\\
 $$</p>
-<p>$$\begin{equation}
-\begin{split}
+<p>$$\begin{equation}\\\
+\begin{split}\\\
 \text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\\\
-U = \text{all users}</p>
-<p>\end{split}
-\end{equation}
+U = \text{all users}\\\</p>
+<p>\end{split}\\\
+\end{equation}\\\
 $$</p>
 <p>With aforementioned consideration, we choose <strong>NDCG</strong> as our model metrics. </p>
 <h2 id="2-related-work">2. Related Work<a class="headerlink" href="#2-related-work" title="Permanent link">&para;</a></h2>
@@ -265,16 +265,16 @@ We have implicit feedback dataset that reflects number of user plays from certai
 <p>Hu, Yifan, Yehuda Koren, and Chris Volinsky. 2008. “Collaborative Filtering for Implicit Feedback Datasets.” In 2008 Eighth IEEE International Conference on Data Mining, 263–72. IEEE.</p>
 <p>Implicit Data does not like explicit data, does not have scale of preference from like to dislike, in implicit scenario we can only sure about it scales,
 commonly objective are to predict the utility (such as rating)</p>
-<p>$$\begin{equation}
-\begin{split}
+<p>$$\begin{equation}\\\
+\begin{split}\\\
 Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}-\hat{r_{user=u,item=i}})^2 \\\
 with\\\
-\hat{r_{u,i}} = \text{predicted ratings on user u and item i}</p>
-<p>\end{split}
-\end{equation}</p>
+\hat{r_{u,i}} = \text{predicted ratings on user u and item i}\\\</p>
+<p>\end{split}\\\
+\end{equation}\\\</p>
 <p>$$</p>
-<p>$$\begin{equation}
-\begin{split}
+<p>$$\begin{equation}\\\
+\begin{split}\\\
 \text{ if we come from matrix factorization model,then } \\\ 
 Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}- \mu - b_{user}-b_{item}-q_{u}\cdot p_{i})^2 \\\
 with\\\
@@ -283,17 +283,17 @@ b_{item}= \text{item bias}\\\
 p_{u}= \text{user preference factor}\\\
 q_{i} = \text{item  factor}\\\</p>
 <p>p_{u} &amp; q_{i} \text{called as latent factor }\\\
-\end{split}
-\end{equation}</p>
+\end{split}\\\
+\end{equation}\\\</p>
 <p>$$</p>
 <p>in implicit feedback our confidence ranging from <code>0</code> to <code>1</code>, so we need to adjust our Objectives </p>
-<p>$$\begin{equation}
-\begin{split}
+<p>$$\begin{equation}\\\
+\begin{split}\\\
 \text{ if we come from matrix factorization model,then } \\\ 
 Minimize \rightarrow \sum_{u \in U} \sum_{i \in I} c_{ui}(p_{ui}- x_{u}^T \cdot y_{i})^2 + \lambda (\sum_{u \in U}||x_{u} || + \sum_{i \in I}||y_{i} ||) \\\
 with\\\
 (c_{ui} = 1 + \alpha r_{ui} )\text{ denotes as scaling factor from implicit interaction, 1 if } r_{ui} = 0 \\\</p>
-<p>\alpha = \text{weight (hyperparameter)}
+<p>\alpha = \text{weight (hyperparameter)}\\\
 x_{u}= \text{user preference factor}\\\
 y_{i} = \text{item  factor}\\\
 \text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infin \\\
@@ -303,8 +303,8 @@ y_{i} = \text{item  factor}\\\
          r_{ui} = 0 \rightarrow p_{ui} = 0 \\\
     \end{dcases} \\\</p>
 <p>x_{u} &amp; y_{i} \text{called as latent factor }\\\
-\end{split}
-\end{equation}</p>
+\end{split}\\\
+\end{equation}\\\</p>
 <p>$$
 the</p>
 <h3 id="43-bayesian-personalized-ranking">4.3. Bayesian Personalized Ranking<a class="headerlink" href="#43-bayesian-personalized-ranking" title="Permanent link">&para;</a></h3>
