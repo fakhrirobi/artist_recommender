@@ -48,7 +48,8 @@ In this approach we will approach to Predict the ranking from user to artists.
 
 
 DCG Formulas : 
-$$\begin{equation}\\\\\\
+```math
+\begin{equation}\\\\\\
 \begin{split}\\\\\\
 1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \\\\\\
 \text{DCG = Discounted Cumulative Gain} \\\\\\
@@ -58,35 +59,37 @@ rel[i] = \text{relevance score at item in position i th}\\\\\\
 
 \end{split}\\\\\\
 \end{equation}\\\\\\
-$$
+```
 
-$$\begin{equation}\\\\\\
+```math
+\begin{equation}\\\\\\
 \begin{split}\\\\\\
 1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\\\\\
 NDCG = \frac{DCG}{IDCG}\\\\\\
 \text{IDCG = perfect DCG score when item ranked correctly.}\\\\\\
 \end{split}\\\\\\
 \end{equation}\\\\\\
-$$
+```
 
 
 MAP Formulas : 
-$$\begin{equation}\\\\\\
+```math
+\begin{equation}\\\\\\
 \begin{split}\\\\\\
 1. AP @K = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \\\\\\
 AP \text{@K}= \text{Average Precision at K-items} \\\\\\ 
 \end{split}\\\\\\
 \end{equation}\\\\\\
-$$
-
-$$\begin{equation}\\\\\\
+```
+```math
+\begin{equation}\\\\\\
 \begin{split}\\\\\\
 \text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\\\\\\
 U = \text{all users}\\\\\\
 
 \end{split}\\\\\\
 \end{equation}\\\\\\
-$$
+```
 
 With aforementioned consideration, we choose **NDCG** as our model metrics. 
 
