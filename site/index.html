@@ -172,18 +172,18 @@ Our Catalogue is Quite Huge contain ~17632 Artists. </p>
 <p>DCG Formulas : 
 $$\begin{equation}
 \begin{split}
-1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \
-\text{DCG = Discounted Cumulative Gain} \
-k= \text{number of items in recommendation}\
-rel[i] = \text{relevance score at item in position i th}\
+1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \\\
+\text{DCG = Discounted Cumulative Gain} \\\
+k= \text{number of items in recommendation}\\\
+rel[i] = \text{relevance score at item in position i th}\\\
 \text{relevance score could be any function / could be customized}</p>
 <p>\end{split}
 \end{equation}
 $$</p>
 <div class="arithmatex">\[\begin{equation}
 \begin{split}
-1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\
-NDCG = \frac{DCG}{IDCG}\\
+1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\\\\\
+NDCG = \frac{DCG}{IDCG}\\\\\\
 \text{IDCG = perfect DCG score when item ranked correctly.}
 \end{split}
 \end{equation}
@@ -191,14 +191,14 @@ NDCG = \frac{DCG}{IDCG}\\
 <p>MAP Formulas : 
 $$\begin{equation}
 \begin{split}
-1. AP <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a> = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \
-AP \text{<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a>}= \text{Average Precision at K-items} \ 
+1. AP <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a> = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \\\
+AP \text{<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/K" title="GitHub User: K">@K</a>}= \text{Average Precision at K-items} \\\ 
 \end{split}
 \end{equation}
 $$</p>
 <p>$$\begin{equation}
 \begin{split}
-\text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\
+\text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\\\
 U = \text{all users}</p>
 <p>\end{split}
 \end{equation}
@@ -267,42 +267,42 @@ We have implicit feedback dataset that reflects number of user plays from certai
 commonly objective are to predict the utility (such as rating)</p>
 <p>$$\begin{equation}
 \begin{split}
-Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}-\hat{r_{user=u,item=i}})^2 \
-with\
+Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}-\hat{r_{user=u,item=i}})^2 \\\
+with\\\
 \hat{r_{u,i}} = \text{predicted ratings on user u and item i}</p>
 <p>\end{split}
 \end{equation}</p>
 <p>$$</p>
 <p>$$\begin{equation}
 \begin{split}
-\text{ if we come from matrix factorization model,then } \ 
-Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}- \mu - b_{user}-b_{item}-q_{u}\cdot p_{i})^2 \
-with\
-b_{user} = \text{user bias}\
-b_{item}= \text{item bias}\
-p_{u}= \text{user preference factor}\
-q_{i} = \text{item  factor}\</p>
-<p>p_{u} &amp; q_{i} \text{called as latent factor }\
+\text{ if we come from matrix factorization model,then } \\\ 
+Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}- \mu - b_{user}-b_{item}-q_{u}\cdot p_{i})^2 \\\
+with\\\
+b_{user} = \text{user bias}\\\
+b_{item}= \text{item bias}\\\
+p_{u}= \text{user preference factor}\\\
+q_{i} = \text{item  factor}\\\</p>
+<p>p_{u} &amp; q_{i} \text{called as latent factor }\\\
 \end{split}
 \end{equation}</p>
 <p>$$</p>
 <p>in implicit feedback our confidence ranging from <code>0</code> to <code>1</code>, so we need to adjust our Objectives </p>
 <p>$$\begin{equation}
 \begin{split}
-\text{ if we come from matrix factorization model,then } \ 
-Minimize \rightarrow \sum_{u \in U} \sum_{i \in I} c_{ui}(p_{ui}- x_{u}^T \cdot y_{i})^2 + \lambda (\sum_{u \in U}||x_{u} || + \sum_{i \in I}||y_{i} ||) \
-with\
-(c_{ui} = 1 + \alpha r_{ui} )\text{ denotes as scaling factor from implicit interaction, 1 if } r_{ui} = 0 \</p>
+\text{ if we come from matrix factorization model,then } \\\ 
+Minimize \rightarrow \sum_{u \in U} \sum_{i \in I} c_{ui}(p_{ui}- x_{u}^T \cdot y_{i})^2 + \lambda (\sum_{u \in U}||x_{u} || + \sum_{i \in I}||y_{i} ||) \\\
+with\\\
+(c_{ui} = 1 + \alpha r_{ui} )\text{ denotes as scaling factor from implicit interaction, 1 if } r_{ui} = 0 \\\</p>
 <p>\alpha = \text{weight (hyperparameter)}
-x_{u}= \text{user preference factor}\
-y_{i} = \text{item  factor}\
-\text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infin \
-\text{we can convert as } p_{ui} \ 
+x_{u}= \text{user preference factor}\\\
+y_{i} = \text{item  factor}\\\
+\text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infin \\\
+\text{we can convert as } p_{ui} \\\ 
     \begin{dcases}
-        r_{ui} &gt; 0 \rightarrow p_{ui} = 1 \
-         r_{ui} = 0 \rightarrow p_{ui} = 0 \
-    \end{dcases} \</p>
-<p>x_{u} &amp; y_{i} \text{called as latent factor }\
+        r_{ui} &gt; 0 \rightarrow p_{ui} = 1 \\\
+         r_{ui} = 0 \rightarrow p_{ui} = 0 \\\
+    \end{dcases} \\\</p>
+<p>x_{u} &amp; y_{i} \text{called as latent factor }\\\
 \end{split}
 \end{equation}</p>
 <p>$$
@@ -314,25 +314,25 @@ the</p>
 <p>The concept is similar to Alternating Least Squares, such which weight interaction with alpha, it only modified the c by adding the log and some epsilon
 $$\begin{equation}
 \begin{split}
-l_{ui} = \text{similar to } p_{ui} \text{in ALS} \ 
-l_{ui} \ 
+l_{ui} = \text{similar to } p_{ui} \text{in ALS} \\\ 
+l_{ui} \\\ 
     \begin{dcases}
-        \text{user interact with item} \rightarrow l_{ui} = 1 \
+        \text{user interact with item} \rightarrow l_{ui} = 1 \\\
         \text{user not interact with item} \rightarrow l_{ui} = 0
-    \end{dcases} \</p>
-<p>\text{from this we could approach this through probabilistic approach, simply find function that output probability, yes you are right, Sigmoid function } \
-\text{Recall again , we still use matrix factorization approach}\
-\text{Hence you will meet again } b_{user},b_{item},\text{latent factors : } x_{user},y_{item}\
-\text{Hence, probability of user interacting with an item,given factors+bias is linear function which converted as probability approx. through sigmoid}\
-p(l_{ui}|x_{user},y_{item},b_{user},b_{item}) = \frac{exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}{1+exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}\</p>
-<p>\text{we are not done yet, we just output the probability, now we need to optimize weight and factors } x_{user},y_{item},b_{user},b_{item} \
-\text{we can use Maximal Likelihood Estimation}\
-(c_{ui} = 1 + \alpha \cdot log(1+(r_{ui} / \epsilon)) )\text{ denotes as scaling factor from implicit interaction}\
+    \end{dcases} \\\</p>
+<p>\text{from this we could approach this through probabilistic approach, simply find function that output probability, yes you are right, Sigmoid function } \\\
+\text{Recall again , we still use matrix factorization approach}\\\
+\text{Hence you will meet again } b_{user},b_{item},\text{latent factors : } x_{user},y_{item}\\\
+\text{Hence, probability of user interacting with an item,given factors+bias is linear function which converted as probability approx. through sigmoid}\\\
+p(l_{ui}|x_{user},y_{item},b_{user},b_{item}) = \frac{exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}{1+exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}\\\</p>
+<p>\text{we are not done yet, we just output the probability, now we need to optimize weight and factors } x_{user},y_{item},b_{user},b_{item} \\\
+\text{we can use Maximal Likelihood Estimation}\\\
+(c_{ui} = 1 + \alpha \cdot log(1+(r_{ui} / \epsilon)) )\text{ denotes as scaling factor from implicit interaction}\\\
 \text{Add another term, Bernoulli Trials, in this case we consider user and items interaction are independent}
-\text{our objective become}\
-\text{Maximize} \rightarrow(ProbaInteractions(R)|X,Y,bias) = \Pi_{u,i}p(l_{ui}|x_{user},y_{item},b_{user},b_{item})^{\alpha r_{ui}}(1-p(l_{ui}|x_{user},y_{item},b_{user},b_{item}))^{1-(\alpha r_{ui})}\
-\text{Hence the computation are expensive we can use Log &rarr; Log Likelihood}\
-\text{to obtain parameter that maximize probability of interaction}\
+\text{our objective become}\\\
+\text{Maximize} \rightarrow(ProbaInteractions(R)|X,Y,bias) = \Pi_{u,i}p(l_{ui}|x_{user},y_{item},b_{user},b_{item})^{\alpha r_{ui}}(1-p(l_{ui}|x_{user},y_{item},b_{user},b_{item}))^{1-(\alpha r_{ui})}\\\
+\text{Hence the computation are expensive we can use Log &rarr; Log Likelihood}\\\
+\text{to obtain parameter that maximize probability of interaction}\\\
 log p(X,X,bias|R) = \sum_{u,i} \alpha r_{u,i}((x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-(1+\alpha r_{u,i}) log(1+exp(x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-\text{some regulatizaton on latent factors (ridge regularization)} (\lambda/2 ||x_{u}||^2) - (\lambda/2 ||y_{i}||^2)
 \end{split}
 \end{equation}</p>
