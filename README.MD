@@ -30,6 +30,14 @@ Business Metrics : Churn Rate
 Process that could be helped with machine learning : 
 ![Business Process ](https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Business%20Process_1.png)
 
+Possible Solutions : 
+| No |                                              Solution |           Task | Detailed Task         | Metrics                                                |
+|---:|------------------------------------------------------:|---------------:|-----------------------|--------------------------------------------------------|
+| 1  | Predict number of user play count on each artist      | Regression     | Count Regression      | Prediction Error (RMSE,MAE,etc)                        |
+| 2  | Predict whether user will like the artist or not      | Classification | Binary Classification | Decision Support Metrics (Precision,Recall,AUC,F1,etc) |
+| 3  | Predict condfidence scale (0-1) how user like an item | Regression     | -                     | Prediction Error (RMSE,MAE,etc)                        |
+| 4  | Predict the ranking from user to artists              | Ranking        | Pairwise Ranking      | Ranking Metrics (ex : NDCG,MAP,MRR,etc)                |
+
 ### 1.5 Objective Metrics 
 
 
@@ -39,16 +47,58 @@ Process that could be helped with machine learning :
 
 ## 2. Related Work 
 ___
+1. Hu, Y., Ogihara, M.: Nextone player: A music recommendation system based on user
+behaviour. In: Int. Society for Music Information Retrieval Conf. (ISMIR’11) (2011)
 
+2. Hariri, N., Mobasher, B., Burke, R.: Context-aware music recommendation based on latenttopic sequential patterns. In: Proceedings of the sixth ACM conference on Recommender
+systems, pp. 131–138. ACM (2012)
 
 ## 3. Dataset and Features 
 ___
 
 
 The dataset obtained from http://www.last.fm, online music system. 
-The dataset itself contains : 
+The dataset itself contains several files 
 
-1. 2K Users listening activity 
+1. `artists.dat`
+   
+   Contains features : 
+
+    - `name`
+    - `url`
+    - `pictureURL`
+  
+
+2. `tags.dat`
+      
+   Contains features : 
+
+    - `tagID`
+    - `tagValue`
+  
+3. `user_artists.dat`
+   
+   Contains features : 
+
+    - `userID`
+    - `artistsID`
+    - `pictureURL`
+  
+4. `user_friends.dat`
+      
+   Contains features : 
+
+    - `name`
+    - `url`
+    - `pictureURL`
+  
+5. `user_taggedartists.dat`
+      
+   Contains features : 
+
+    - `name`
+    - `url`
+    - `pictureURL`
 
 
 
