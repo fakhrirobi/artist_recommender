@@ -40,10 +40,55 @@ Possible Solutions :
 | 4  | Predict the ranking from user to artists              | Ranking        | Pairwise Ranking      | Ranking Metrics (ex : NDCG,MAP,MRR,etc)                |
 
 ### 1.5 Objective Metrics 
+In this approach we will approach to Predict the ranking from user to artists. 
+| No |                                                                                     Metrics |                                                                                                        Advantage | Disadvantage                                                       |
+|---:|--------------------------------------------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------:|--------------------------------------------------------------------|
+| 1  | Normalized Discounted Cumulative Gain (Measure average corrent prediction  of each metrics) | 1.Discounting mechanism, it will penalty upper rank if incorrectly predicted (Higher ranked item more important) | 1. Not Quite Intuitive in Explanation 2. Not directly optimizeable |
+| 2  | Mean Average Precision (Measure Rolling Precision between all recommended items)            | 1.Intuitive to be explained                                                                                      |  1. Does not care about ordering                                   |
 
 
+DCG Formulas : 
+$$\begin{equation}
+\begin{split}
+1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \\
+\text{DCG = Discounted Cumulative Gain} \\
+k= \text{number of items in recommendation}\\
+rel[i] = \text{relevance score at item in position i th}\\
+\text{relevance score could be any function / could be customized}
+
+\end{split}
+\end{equation}
+$$
+
+$$\begin{equation}
+\begin{split}
+1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\
+NDCG = \frac{DCG}{IDCG}\\
+\text{IDCG = perfect DCG score when item ranked correctly.}
+\end{split}
+\end{equation}
+$$
 
 
+MAP Formulas : 
+$$\begin{equation}
+\begin{split}
+1. AP @K = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \\
+AP \text{@K}= \text{Average Precision at K-items} \\ 
+\end{split}
+\end{equation}
+$$
+
+$$\begin{equation}
+\begin{split}
+\text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\\
+U = \text{all users}
+
+\end{split}
+\end{equation}
+$$
+
+With aforementioned consideration, we choose **NDCG** as our model metrics. 
 
 
 ## 2. Related Work 
@@ -65,41 +110,21 @@ The dataset itself contains several files
    
    Contains features : 
 
-    - `name`
-    - `url`
-    - `pictureURL`
-  
+    - `name`: string : contain artistname
+    - `id` : integer : contain artistID
+    - `url`:string : link to artist page
+    - `pictureURL`:string : link to artist picture
 
-2. `tags.dat`
-      
-   Contains features : 
-
-    - `tagID`
-    - `tagValue`
   
-3. `user_artists.dat`
+2. `user_artists.dat`
    
    Contains features : 
 
-    - `userID`
-    - `artistsID`
-    - `pictureURL`
+    - `userID`: string : contain userID
+    - `artistsID`: string : contain artistID
+    - `weight`: int: number of playcounts song from given `artistID`
   
-4. `user_friends.dat`
-      
-   Contains features : 
 
-    - `name`
-    - `url`
-    - `pictureURL`
-  
-5. `user_taggedartists.dat`
-      
-   Contains features : 
-
-    - `name`
-    - `url`
-    - `pictureURL`
 
 
 
@@ -109,42 +134,145 @@ ___
 
 ### 4.1. Recommender System Introduction
 
-Recomender system
-Problem 
 
+A recommender system is a type of information filtering system that predicts and suggests items or content that a user might be interested in. Its main objective is to provide personalized recommendations based on the user's preferences, historical data, and patterns of behavior.
+
+Recommender systems are commonly used in e-commerce platforms, streaming services, social media platforms, and various other applications where there is a large amount of data and a need to assist users in finding relevant items or content. These systems employ algorithms and techniques to analyze user data, item characteristics, and other relevant factors to generate recommendations.
 We have implicit feedback dataset that reflects number of user plays from certain artist.
 
-Given those utility matrix we will recommend to each user what artist they might like. 
+
+Recommender Problem 
+
+       Given item from all catalogue, we will predict the utility of each item to each user, we want to maximize the utility.
+
+---
+Data Requirement
+
+To develop recommender system, we need data, contain preferences /utility, it's called as utility matrix. 
+
+A utility matrix, also known as a preference matrix or rating matrix, is a fundamental concept in recommender systems. It represents the preferences or ratings of users for different items in a structured matrix format.
+
+In a utility matrix, the rows represent users, and the columns represent items. Each cell in the matrix corresponds to a user's rating or preference for a particular item. The ratings can be explicit, such as numerical scores or ratings given by users, or implicit, such as purchase history, views, or clicks.
+
+![Example of utility matirx](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlYyF0E0xvd1usYm8aj_GysgSkD0YaDPRqg&usqp=CAU)
+
+[src](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlYyF0E0xvd1usYm8aj_GysgSkD0YaDPRqg&usqp=CAU)
+
+Types of utility matirx : 
+
+![Types of utility](https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/utility.png)
+
+---
+Recommender System Approach 
+
+![Approaches](https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Approach.png)
 
 
-The recommendation will be in form such as 
-1. "Since you listen to artist X" --> give list 
-2. etc. 
-
-Since we have enough utility matrix / implicit feedback we will start with collaborative filtering approach. 
-
-Collaborative filtering approach can be divided into several approaches 
-
-![Branching in Collaborative Filtering](https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Collaborative%20Filtering%20Branching.png)
-
+In this approach we are dealing with implicit feedback data, hence we can utilize collaborative filtering approach. 
 
 ### 4.2.Baseline (Popularity Recommendation)
 
+How to generate recommendation : recommend item that has the most interaction (most played in this context. )
 ### 4.3. Alternating Least Square (Implicit Feedback Matrix Factorization)
 Hu, Yifan, Yehuda Koren, and Chris Volinsky. 2008. “Collaborative Filtering for Implicit Feedback Datasets.” In 2008 Eighth IEEE International Conference on Data Mining, 263–72. IEEE.
 
+Implicit Data does not like explicit data, does not have scale of preference from like to dislike, in implicit scenario we can only sure about it scales,
+commonly objective are to predict the utility (such as rating)
+
+$$\begin{equation}
+\begin{split}
+Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}-\hat{r_{user=u,item=i}})^2 \\
+with\\
+\hat{r_{u,i}} = \text{predicted ratings on user u and item i}
+
+
+\end{split}
+\end{equation}
+
+$$
+
+$$\begin{equation}
+\begin{split}
+\text{ if we come from matrix factorization model,then } \\ 
+Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}- \mu - b_{user}-b_{item}-q_{u}\cdot p_{i})^2 \\
+with\\
+b_{user} = \text{user bias}\\
+b_{item}= \text{item bias}\\
+p_{u}= \text{user preference factor}\\
+q_{i} = \text{item  factor}\\
+
+p_{u} & q_{i} \text{called as latent factor }\\
+\end{split}
+\end{equation}
+
+$$
+
+in implicit feedback our confidence ranging from `0` to `1`, so we need to adjust our Objectives 
+
+$$\begin{equation}
+\begin{split}
+\text{ if we come from matrix factorization model,then } \\ 
+Minimize \rightarrow \sum_{u \in U} \sum_{i \in I} c_{ui}(p_{ui}- x_{u}^T \cdot y_{i})^2 + \lambda (\sum_{u \in U}||x_{u} || + \sum_{i \in I}||y_{i} ||) \\
+with\\
+(c_{ui} = 1 + \alpha r_{ui} )\text{ denotes as scaling factor from implicit interaction, 1 if } r_{ui} = 0 \\
+
+\alpha = \text{weight (hyperparameter)}
+x_{u}= \text{user preference factor}\\
+y_{i} = \text{item  factor}\\
+\text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infin \\
+\text{we can convert as } p_{ui} \\ 
+    \begin{dcases}
+        r_{ui} > 0 \rightarrow p_{ui} = 1 \\
+         r_{ui} = 0 \rightarrow p_{ui} = 0 \\
+    \end{dcases} \\
+
+x_{u} & y_{i} \text{called as latent factor }\\
+\end{split}
+\end{equation}
+
+$$
+the
 
 ### 4.3. Bayesian Personalized Ranking 
 Rendle, Steffen, Christoph Freudenthaler, Zeno Gantner, and Lars Schmidt-Thieme. 2009. “BPR: Bayesian Personalized Ranking from Implicit Feedback.” In Proceedings of the Twenty-Fifth Conference on Uncertainty in Artificial Intelligence, 452–61. AUAI Press.
+
+
 
 
 ### 4.4. Logistic Matrix Factorization
 Johnson, Christopher C. 2014. “Logistic Matrix Factorization for Implicit Feedback Data.” Advances in Neural Information Processing Systems 27.
 
 
+The concept is similar to Alternating Least Squares, such which weight interaction with alpha, it only modified the c by adding the log and some epsilon
+$$\begin{equation}
+\begin{split}
+l_{ui} = \text{similar to } p_{ui} \text{in ALS} \\ 
+l_{ui} \\ 
+    \begin{dcases}
+        \text{user interact with item} \rightarrow l_{ui} = 1 \\
+        \text{user not interact with item} \rightarrow l_{ui} = 0
+    \end{dcases} \\
 
+\text{from this we could approach this through probabilistic approach, simply find function that output probability, yes you are right, Sigmoid function } \\
+\text{Recall again , we still use matrix factorization approach}\\
+\text{Hence you will meet again } b_{user},b_{item},\text{latent factors : } x_{user},y_{item}\\
+\text{Hence, probability of user interacting with an item,given factors+bias is linear function which converted as probability approx. through sigmoid}\\
+p(l_{ui}|x_{user},y_{item},b_{user},b_{item}) = \frac{exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}{1+exp((x_{user}^T\cdot y_{item}) + b_{user}+b_{item})}\\
 
+\text{we are not done yet, we just output the probability, now we need to optimize weight and factors } x_{user},y_{item},b_{user},b_{item} \\
+\text{we can use Maximal Likelihood Estimation}\\
+(c_{ui} = 1 + \alpha \cdot log(1+(r_{ui} / \epsilon)) )\text{ denotes as scaling factor from implicit interaction}\\
+\text{Add another term, Bernoulli Trials, in this case we consider user and items interaction are independent}
+\text{our objective become}\\
+\text{Maximize} \rightarrow(ProbaInteractions(R)|X,Y,bias) = \Pi_{u,i}p(l_{ui}|x_{user},y_{item},b_{user},b_{item})^{\alpha r_{ui}}(1-p(l_{ui}|x_{user},y_{item},b_{user},b_{item}))^{1-(\alpha r_{ui})}\\
+\text{Hence the computation are expensive we can use Log --> Log Likelihood}\\
+\text{to obtain parameter that maximize probability of interaction}\\
+log p(X,X,bias|R) = \sum_{u,i} \alpha r_{u,i}((x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-(1+\alpha r_{u,i}) log(1+exp(x_{u}^T\cdot y_{i}) + b_{u}+b_{i})-\text{some regulatizaton on latent factors (ridge regularization)} (\lambda/2 ||x_{u}||^2) - (\lambda/2 ||y_{i}||^2)
+\end{split}
+\end{equation}
 
+$$
+To update the weight (bias,latent factors) we can use Gradient Descent , most common in Recommender System is **Stochastic Gradient Descent**. 
 
 ## 5.Experiments / Results / Discussion 
 ___
