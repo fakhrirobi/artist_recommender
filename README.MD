@@ -48,44 +48,44 @@ In this approach we will approach to Predict the ranking from user to artists.
 
 
 DCG Formulas : 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\\\\
+\begin{split}\\\\\\
 1. \text{DCG}= \frac{\sum_{i=1}^{k} 2^{rel[i]}-1}{log_{2}([i]+2)} \\\\\\
 \text{DCG = Discounted Cumulative Gain} \\\\\\
 k= \text{number of items in recommendation}\\\\\\
 rel[i] = \text{relevance score at item in position i th}\\\\\\
 \text{relevance score could be any function / could be customized}
 
-\end{split}
-\end{equation}
+\end{split}\\\\\\
+\end{equation}\\\\\\
 $$
 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\\\\
+\begin{split}\\\\\\
 1.NDCG \text{= Scaled Version of DCG (0 to 1)}\\\\\\
 NDCG = \frac{DCG}{IDCG}\\\\\\
-\text{IDCG = perfect DCG score when item ranked correctly.}
-\end{split}
-\end{equation}
+\text{IDCG = perfect DCG score when item ranked correctly.}\\\\\\
+\end{split}\\\\\\
+\end{equation}\\\\\\
 $$
 
 
 MAP Formulas : 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\\\\
+\begin{split}\\\\\\
 1. AP @K = \frac{\sum_{i=1}^{K} \text{Precision@K=i}}{K} \\\\\\
 AP \text{@K}= \text{Average Precision at K-items} \\\\\\ 
-\end{split}
-\end{equation}
+\end{split}\\\\\\
+\end{equation}\\\\\\
 $$
 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\\\\
+\begin{split}\\\\\\
 \text{MAP@K} = \frac{\sum_{u \in U} \text{Average Precision(u)}}{K}\\\\\\
-U = \text{all users}
+U = \text{all users}\\\\\\
 
-\end{split}
-\end{equation}
+\end{split}\\\\\\
+\end{equation}\\\\\\
 $$
 
 With aforementioned consideration, we choose **NDCG** as our model metrics. 
@@ -179,20 +179,20 @@ Hu, Yifan, Yehuda Koren, and Chris Volinsky. 2008. “Collaborative Filtering fo
 Implicit Data does not like explicit data, does not have scale of preference from like to dislike, in implicit scenario we can only sure about it scales,
 commonly objective are to predict the utility (such as rating)
 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\\\\
+\begin{split}\\\\\\
 Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}-\hat{r_{user=u,item=i}})^2 \\\\\\
 with\\\\\\
-\hat{r_{u,i}} = \text{predicted ratings on user u and item i}
+\hat{r_{u,i}} = \text{predicted ratings on user u and item i}\\\\\\
 
 
-\end{split}
-\end{equation}
+\end{split}\\\\\\
+\end{equation}\\\\\\
 
 $$
 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\\\\
+\begin{split}\\\\\\
 \text{ if we come from matrix factorization model,then } \\\\\\ 
 Minimize \rightarrow \sum_{u \in U} \sum_{i \in I}( r_{user=u,item=i}- \mu - b_{user}-b_{item}-q_{u}\cdot p_{i})^2 \\\\\\
 with\\\\\\
@@ -202,21 +202,21 @@ p_{u}= \text{user preference factor}\\\\\\
 q_{i} = \text{item  factor}\\\\\\
 
 p_{u} & q_{i} \text{called as latent factor }\\\\\\
-\end{split}
-\end{equation}
+\end{split}\\\\\\
+\end{equation}\\\\\\
 
 $$
 
 in implicit feedback our confidence ranging from `0` to `1`, so we need to adjust our Objectives 
 
-$$\begin{equation}
-\begin{split}
+$$\begin{equation}\\\\\\
+\begin{split}\\\\\\
 \text{ if we come from matrix factorization model,then } \\\\\\ 
 Minimize \rightarrow \sum_{u \in U} \sum_{i \in I} c_{ui}(p_{ui}- x_{u}^T \cdot y_{i})^2 + \lambda (\sum_{u \in U}||x_{u} || + \sum_{i \in I}||y_{i} ||) \\\\\\
 with\\\\\\
 (c_{ui} = 1 + \alpha r_{ui} )\text{ denotes as scaling factor from implicit interaction, 1 if } r_{ui} = 0 \\\\\\
 
-\alpha = \text{weight (hyperparameter)}
+\alpha = \text{weight (hyperparameter)}\\\\\\
 x_{u}= \text{user preference factor}\\\\\\
 y_{i} = \text{item  factor}\\\\\\
 \text{remember that our confidence ranging from 0 to 1, meanwhile our interaction such as count had value from 0 to} \infin \\\\\\
@@ -227,8 +227,8 @@ y_{i} = \text{item  factor}\\\\\\
     \end{dcases} \\\\\\
 
 x_{u} & y_{i} \text{called as latent factor }\\\\\\
-\end{split}
-\end{equation}
+\end{split}\\\\\\
+\end{equation}\\\\\\
 
 $$
 the
