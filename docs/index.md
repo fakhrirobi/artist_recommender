@@ -31,6 +31,7 @@ Process that could be helped with machine learning :
 ![Business Process ](https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Business%20Process_1.png)
 
 Possible Solutions : 
+
 | No |                                              Solution |           Task | Detailed Task         | Metrics                                                |
 |---:|------------------------------------------------------:|---------------:|-----------------------|--------------------------------------------------------|
 | 1  | Predict number of user play count on each artist      | Regression     | Count Regression      | Prediction Error (RMSE,MAE,etc)                        |
