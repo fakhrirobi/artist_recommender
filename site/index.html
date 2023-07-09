@@ -121,13 +121,48 @@ Our Catalogue is Quite Huge contain ~17632 Artists. </p>
 <h3 id="14-identifying-machine-learning-problem">1.4. Identifying Machine Learning Problem</h3>
 <p>Process that could be helped with machine learning : 
 <img alt="Business Process " src="https://raw.githubusercontent.com/fakhrirobi/artist_recommender/main/assets/Business%20Process_1.png" /></p>
-<p>Possible Solutions : 
-| No |                                              Solution |           Task | Detailed Task         | Metrics                                                |
-|---:|------------------------------------------------------:|---------------:|-----------------------|--------------------------------------------------------|
-| 1  | Predict number of user play count on each artist      | Regression     | Count Regression      | Prediction Error (RMSE,MAE,etc)                        |
-| 2  | Predict whether user will like the artist or not      | Classification | Binary Classification | Decision Support Metrics (Precision,Recall,AUC,F1,etc) |
-| 3  | Predict condfidence scale (0-1) how user like an item | Regression     | -                     | Prediction Error (RMSE,MAE,etc)                        |
-| 4  | Predict the ranking from user to artists              | Ranking        | Pairwise Ranking      | Ranking Metrics (ex : NDCG,MAP,MRR,etc)                |</p>
+<p>Possible Solutions : </p>
+<table>
+<thead>
+<tr>
+<th align="right">No</th>
+<th align="right">Solution</th>
+<th align="right">Task</th>
+<th>Detailed Task</th>
+<th>Metrics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">1</td>
+<td align="right">Predict number of user play count on each artist</td>
+<td align="right">Regression</td>
+<td>Count Regression</td>
+<td>Prediction Error (RMSE,MAE,etc)</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">Predict whether user will like the artist or not</td>
+<td align="right">Classification</td>
+<td>Binary Classification</td>
+<td>Decision Support Metrics (Precision,Recall,AUC,F1,etc)</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">Predict condfidence scale (0-1) how user like an item</td>
+<td align="right">Regression</td>
+<td>-</td>
+<td>Prediction Error (RMSE,MAE,etc)</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">Predict the ranking from user to artists</td>
+<td align="right">Ranking</td>
+<td>Pairwise Ranking</td>
+<td>Ranking Metrics (ex : NDCG,MAP,MRR,etc)</td>
+</tr>
+</tbody>
+</table>
 <h3 id="15-objective-metrics">1.5 Objective Metrics</h3>
 <h2 id="2-related-work">2. Related Work</h2>
 <hr />
